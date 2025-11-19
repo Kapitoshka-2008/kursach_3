@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Главная{% endblock %}
+
+{% block content %}
+<h1 class="title">Статистика сервиса</h1>
+<div class="columns">
+    <div class="column">
+        <div class="box has-text-centered">
+            <p class="heading">Всего рассылок</p>
+            <p class="title">{{ stats.total_mailings }}</p>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box has-text-centered">
+            <p class="heading">Активных</p>
+            <p class="title">{{ stats.active_mailings }}</p>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box has-text-centered">
+            <p class="heading">Уникальных получателей</p>
+            <p class="title">{{ stats.unique_recipients }}</p>
+        </div>
+    </div>
+</div>
+
+{% if user.is_authenticated %}
+    <div class="buttons">
+        <a class="button is-primary" href="{% url 'mailings:mailing_create' %}">Создать рассылку</a>
+        <a class="button is-link" href="{% url 'mailings:recipient_create' %}">Добавить получателя</a>
+        <a class="button is-info" href="{% url 'mailings:message_create' %}">Создать сообщение</a>
+    </div>
+{% else %}
+    <p>Чтобы управлять рассылками, пожалуйста, войдите в систему или зарегистрируйтесь.</p>
+{% endif %}
+{% endblock %}
+
