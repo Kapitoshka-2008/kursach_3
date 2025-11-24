@@ -34,3 +34,4 @@ class CustomUser(AbstractUser):
     @property
     def full_display_name(self):
         return self.get_full_name() or self.email
+
