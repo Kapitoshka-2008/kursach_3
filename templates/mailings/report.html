@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Отчет по рассылкам{% endblock %}
+
+{% block content %}
+<h1 class="title">Отчет по рассылкам</h1>
+<div class="columns">
+    <div class="column">
+        <div class="box has-text-centered">
+            <p class="heading">Всего попыток</p>
+            <p class="title">{{ stats.total|default:0 }}</p>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box has-text-centered">
+            <p class="heading">Успешно</p>
+            <p class="title">{{ stats.success|default:0 }}</p>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box has-text-centered">
+            <p class="heading">Неуспешно</p>
+            <p class="title">{{ stats.failed|default:0 }}</p>
+        </div>
+    </div>
+</div>
+
+<h2 class="subtitle">Последние попытки</h2>
+<table class="table is-fullwidth is-striped">
+    <thead>
+    <tr>
+        <th>Дата</th>
+        <th>Рассылка</th>
+        <th>Получатель</th>
+        <th>Статус</th>
+        <th>Ответ</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for attempt in attempts %}
+        <tr>
+            <td>{{ attempt.attempt_time }}</td>
+            <td><a href="{% url 'mailings:mailing_detail' attempt.mailing.pk %}">#{{ attempt.mailing.pk }}</a></td>
+            <td>{{ attempt.recipient }}</td>
+            <td>{{ attempt.get_status_display }}</td>
+            <td>{{ attempt.server_response|default:'—' }}</td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="5">Данных пока нет.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+
