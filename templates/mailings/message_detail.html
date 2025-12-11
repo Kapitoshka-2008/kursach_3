@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Сообщение{% endblock %}
+
+{% block content %}
+<h1 class="title">{{ message.subject }}</h1>
+<div class="content">
+    <p><strong>Создано:</strong> {{ message.created_at }}</p>
+    <p><strong>Текст:</strong></p>
+    <div class="box">{{ message.body|linebreaks }}</div>
+</div>
+<div class="buttons">
+    {% if message.owner == user %}
+        <a class="button" href="{% url 'mailings:message_update' message.pk %}">Изменить</a>
+        <a class="button is-danger" href="{% url 'mailings:message_delete' message.pk %}">Удалить</a>
+    {% endif %}
+    <a class="button is-light" href="{% url 'mailings:message_list' %}">Назад</a>
+</div>
+{% endblock %}
+

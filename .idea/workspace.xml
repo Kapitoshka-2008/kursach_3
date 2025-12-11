@@ -4,18 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d819d19c-b31b-46f3-9ab5-b4917175ed2c" name="Changes" comment="14_47_19_11_2025" />
+    <list default="true" id="d819d19c-b31b-46f3-9ab5-b4917175ed2c" name="Changes" comment="14_47_19_11_2025">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Kapitoshka-2008&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Kapitoshka-2008/kursach_3.git&quot;,
+    &quot;accountId&quot;: &quot;10b77dd8-c805-47f7-a306-23258a5f5542&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="35guIbg2q8QZrtTLkdRAe3pC3RY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -25,7 +49,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "#1 on developer"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -60,7 +84,23 @@
       <option name="project" value="LOCAL" />
       <updated>1763553756569</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="14_47_19_11_2025">
+      <option name="closed" value="true" />
+      <created>1763976574317</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763976574317</updated>
+    </task>
+    <task id="LOCAL-00004" summary="14_47_19_11_2025">
+      <option name="closed" value="true" />
+      <created>1763978493909</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763978493909</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

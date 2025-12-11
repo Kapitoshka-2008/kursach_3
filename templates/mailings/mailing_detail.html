@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Рассылка #{{ mailing.pk }}{% endblock %}
+
+{% block content %}
+<h1 class="title">Рассылка #{{ mailing.pk }}</h1>
+<p><strong>Статус:</strong> {{ mailing.get_status_display }}</p>
+<p><strong>Начало:</strong> {{ mailing.start_time }}</p>
+<p><strong>Окончание:</strong> {{ mailing.end_time }}</p>
+<p><strong>Сообщение:</strong> <a href="{% url 'mailings:message_detail' mailing.message.pk %}">{{ mailing.message.subject }}</a></p>
+<p><strong>Получатели:</strong></p>
+<ul>
+    {% for recipient in mailing.recipients.all %}
+        <li>{{ recipient.full_name }} ({{ recipient.email }})</li>
+    {% empty %}
+        <li>Нет получателей</li>
+    {% endfor %}
+</ul>
+
+<div class="buttons">
+    {% if mailing.owner == user %}
+        <form method="post" action="{% url 'mailings:mailing_send' mailing.pk %}">
+            {% csrf_token %}
+            <button class="button is-success" type="submit">Отправить сейчас</button>
+        </form>
+        <a class="button" href="{% url 'mailings:mailing_update' mailing.pk %}">Изменить</a>
+        <a class="button is-danger" href="{% url 'mailings:mailing_delete' mailing.pk %}">Удалить</a>
+    {% endif %}
+    <a class="button is-light" href="{% url 'mailings:mailing_list' %}">Назад</a>
+</div>
+{% endblock %}
+

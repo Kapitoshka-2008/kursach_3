@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Получатели{% endblock %}
+
+{% block content %}
+<div class="level">
+    <div class="level-left">
+        <h1 class="title">Получатели</h1>
+    </div>
+    <div class="level-right">
+        <a class="button is-primary" href="{% url 'mailings:recipient_create' %}">Добавить</a>
+    </div>
+</div>
+<table class="table is-fullwidth is-striped">
+    <thead>
+    <tr>
+        <th>Email</th>
+        <th>ФИО</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for recipient in recipients %}
+        <tr>
+            <td><a href="{% url 'mailings:recipient_detail' recipient.pk %}">{{ recipient.email }}</a></td>
+            <td>{{ recipient.full_name }}</td>
+            <td>
+                {% if recipient.owner == user %}
+                    <a class="button is-small" href="{% url 'mailings:recipient_update' recipient.pk %}">Изменить</a>
+                    <a class="button is-small is-danger" href="{% url 'mailings:recipient_delete' recipient.pk %}">Удалить</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="3">Получатели не созданы.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+

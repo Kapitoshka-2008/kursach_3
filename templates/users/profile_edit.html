@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Редактировать профиль{% endblock %}
+
+{% block content %}
+<h1 class="title">Редактировать профиль</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="buttons">
+        <button class="button is-primary" type="submit">Сохранить</button>
+        <a class="button is-light" href="{% url 'users:profile' %}">Отмена</a>
+    </div>
+</form>
+{% endblock %}
+
+
+

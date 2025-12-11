@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Попытки рассылок{% endblock %}
+
+{% block content %}
+<h1 class="title">Попытки рассылок</h1>
+<table class="table is-fullwidth is-striped">
+    <thead>
+    <tr>
+        <th>Дата</th>
+        <th>Рассылка</th>
+        <th>Получатель</th>
+        <th>Статус</th>
+        <th>Ответ сервера</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for attempt in attempts %}
+        <tr>
+            <td>{{ attempt.attempt_time }}</td>
+            <td><a href="{% url 'mailings:mailing_detail' attempt.mailing.pk %}">#{{ attempt.mailing.pk }}</a></td>
+            <td>{{ attempt.recipient }}</td>
+            <td>{{ attempt.get_status_display }}</td>
+            <td>{{ attempt.server_response|default:'—' }}</td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="5">Попыток пока нет.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+

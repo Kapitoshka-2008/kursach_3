@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Сообщения{% endblock %}
+
+{% block content %}
+<div class="level">
+    <div class="level-left">
+        <h1 class="title">Сообщения</h1>
+    </div>
+    <div class="level-right">
+        <a class="button is-primary" href="{% url 'mailings:message_create' %}">Создать</a>
+    </div>
+</div>
+<table class="table is-fullwidth is-striped">
+    <thead>
+    <tr>
+        <th>Тема</th>
+        <th>Создано</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for message in messages %}
+        <tr>
+            <td><a href="{% url 'mailings:message_detail' message.pk %}">{{ message.subject }}</a></td>
+            <td>{{ message.created_at }}</td>
+            <td>
+                {% if message.owner == user %}
+                    <a class="button is-small" href="{% url 'mailings:message_update' message.pk %}">Изменить</a>
+                    <a class="button is-small is-danger" href="{% url 'mailings:message_delete' message.pk %}">Удалить</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="3">Сообщений пока нет.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
